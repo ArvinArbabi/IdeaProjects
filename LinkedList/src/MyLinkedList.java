@@ -1,5 +1,5 @@
-public class LinkedList<T> {
-    private class Node {
+public class MyLinkedList<T> {
+    class Node {
         T data;
         Node next;
         Node prev;
@@ -9,7 +9,7 @@ public class LinkedList<T> {
         }
     }
 
-    private Node head;
+    Node head;
 
     public void add(T data){
         Node newNode = new Node(data);
@@ -28,33 +28,6 @@ public class LinkedList<T> {
 
         current.next = newNode;
         newNode.prev = current;
-    }
-    /*
-    make a method contains that removes any duplicates from the linkedlist
-     */
-    public void contains(){
-        java.util.HashSet<T> seen = new java.util.HashSet<>();
-        Node current = head;
-
-        while (current != null) {
-            if (seen.contains(current.data)){
-                Node next = current.next;
-                if (current.prev != null) {
-                    current.prev.next = current.next;
-                }
-                else {
-                    head = current.next;
-                }
-                if (current.next != null) {
-                    current.next.prev = current.prev;
-                }
-                current = next;
-            }
-            else {
-                seen.add(current.data);
-                current = current.next;
-            }
-        }
     }
 
     /*
