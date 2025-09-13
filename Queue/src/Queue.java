@@ -10,7 +10,8 @@ public class Queue {
 
     Node head;
 
-    public void enque(int data){
+
+    public void enqueue(int data){
         Node newNode = new Node(data);
 
         if (head == null){
@@ -27,12 +28,34 @@ public class Queue {
         current.next = newNode;
     }
 
-    public int pop(){
-        int value = head.data;
-        return value;
-
+    public void dequeue(){
+        if (head == null){
+            return;
+        }
+        head = head.next;
     }
 
 
+    public String toString(){
+        StringBuilder sb = new StringBuilder();
+        Node current = head;
+        while(current != null){
+            sb.append(current.data);
+            if(current.next != null){
+                sb.append(", ");
+            }
+            current = current.next;
+        }
+        return sb.toString();
+    }
+
+
+
+    public boolean isEmpty(){
+        if (head == null){
+            return true;
+        }
+        return false;
+    }
 
 }
