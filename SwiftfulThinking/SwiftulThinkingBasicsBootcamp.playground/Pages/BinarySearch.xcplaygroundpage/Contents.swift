@@ -20,3 +20,4 @@ print(left)
 print(right)
 print(searcher(array: array, left: left, right: right, target: 3))
 
+
